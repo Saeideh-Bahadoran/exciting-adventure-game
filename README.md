@@ -1,30 +1,44 @@
 # exciting-adventure-game
 
-Click [here](https://github.com/Saeideh-Bahadoran/exciting-adventure-game) to see deployed game
+Click [here]() to see deployed game
 
-#Description
+# Description
 
-It's a 2D TOP-Down game.
+- It's a 2D Top-Down game.
+- It's like an adventure!
+- The player has gone on an adventure trip.
+- He has to pick some potatoes for dinner.
+- It's getting dark and the timing of doing this is very important => The faster the better.
+- He must pick 5 potatoes to win.
+- But there are some poisonous potatoes among the potatoes he wants to pick.
+- For every poisoned potato he picks, he loses one life.
+- He has a total of three lives and if his life reaches zero, he loses.
+- The game score is the time when the player was able to collect 5 potatoes.
+- Player scores will be recorded.
 
-It's like an adventure!
+# MVP
+MVP definition here, list of minimum features
 
-The player has gone on an adventure trip.
+# Backlog
+List of features you might implement after the MVP
 
-He has to pick some potatoes for dinner.
+# Data structure
+List of classes and methods
 
+# States y States Transitions
+- Splash
+- Game
+- Gameover
 
-It's getting dark and the timing of doing this is very important => The faster the better.
+# Task
+List of tasks in order of priority
 
-He must pick 5 potatoes to win.
+# Links
+- [Trello Link](https://trello.com/b/nNwwifHS/exciting-adventure-game)
 
-But there are some poisonous potatoes among the potatoes he wants to pick.
+- Slides Link
+- [Github repository Link](https://github.com/Saeideh-Bahadoran/exciting-adventure-game)
+- Deployment Link
 
-For every poisoned potato he picks, he loses one life.
-
-He has a total of three lives and if his life reaches zero, he loses.
-
-The game score is the time when the player was able to collect 5 potatoes.
-
-Player scores will be recorded.
 
 
