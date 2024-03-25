@@ -1,15 +1,21 @@
- 
+ * {
+    margin: 0;
+    padding: 0;
+ }
 body {
     height: 100vh;
     display:flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+
 }
 
 
 main{
     width: 800px;
     max-width: 800px;
+    height: 100vh;;
 }
 
 #game-intro{
@@ -57,27 +63,45 @@ main{
     left: 5px;
 }
 
-#game-img{
+.game-img{
     position: absolute;
-    z-index: -1;
-    width: 100%;
+   
+    /* width: 100%; */
     height: 100%;
     overflow: hidden;  /* Prevent scrolling */
-    max-width: 100%;
+    /* max-width: 100%; */
     max-height: 100%;
     display: block;
     margin: auto; /* Center the image horizontally */
 
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+}
+
+.sky {
+    z-index: -2;
+    top:0;
+    height: 45%;
+}
+
+.ground-top {
+    z-index: -1;
+    top: 200px;
+    height: 33%;
+}
+
+.ground-bottom {
+    z-index: 0;
+    height: 33%;
+    top: 400px;
 }
 
 #game-screen {
     display: none;
-    padding: 20px 0px;
     overflow: hidden;
     position: relative;
+    height: 100vh;
   }
 
 
