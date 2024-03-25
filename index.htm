@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Exciting adventure</title>
+  </head>
+  <body>
+    <main>
+      <!-- #game-intro is initially shown on the game start screen -->
+      <div id="game-intro">
+        <img src="./images/splash.jpg" alt="" class="background-img" />
+        <br />
+        <button id="start-button">Start Game</button>
+        <div id="introduction">you gone on an adventure trip and should pick some potatoes for dinner.
+            It's getting dark and the timing of doing this is very important => The faster the better!you must pick 5 potatoes to win.
+            But there are some poisonous potatoes among the potatoes.
+            For every poisoned potato you pick, he loses one life.
+            The game score is the time when you able to collect 5 potatoes and it would be recorded.</div>
+        <button id="intro-button">Introduction</button>
+      
+        </div>
+
+      <div id="game-container">
+       
+        <!-- #game-screen is initially hidden using CSS style display: none -->
+        <div id="game-screen">
+
+            <img src="./images/sky.png" alt="" class="game-img" height="200" />
+            <img src="./images/game.png" alt="" style="margin-top: -70px;" height="200" />
+            <img src="./images/game.png" alt="" style="margin-top: -70px;" class="game-img" height="200" />
+
+        </div>
+
+        <div id ="gui">
+            
+            <p>Score(Time): <span id="score">0</span></p>
+            <p>Lives: <span id="lives">3</span></p>
+            <p>potatoes: <span id="potatoes">0</span></p>
+        </div>
+      </div>
+
+      <!-- #game-end is initially hidden using CSS style display: none -->
+      <!-- <div id="game-end">
+        <img src="./images/gameOver.png" alt="" class="background-img" />
+        <h1>Game Over</h1>
+        <br />
+        <button id="restart-button">Restart</button>
+      </div> -->
+    </main>
+
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+  </body>
+</html>
+
