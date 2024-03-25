@@ -7,8 +7,8 @@ class Game {
     this.gameContainer = document.getElementById('game-container')
 
     //this.endScreen = document.getElementById('game-end')
-    this.width = 150
-    this.height = 100
+    // this.width = 150
+    // this.height = 100
     //this.potato = []
     this.intervalId
     this.currentFrame = 0
