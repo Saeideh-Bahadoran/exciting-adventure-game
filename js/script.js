@@ -34,6 +34,7 @@ window.addEventListener('load', () => {
 
     restartButton.addEventListener('click', function () {
       startGame()
+      console.log()
       // Last option in case you have problems on the restart => window.location.reload()
     })
 

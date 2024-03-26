@@ -24,7 +24,7 @@ class Potato{
             this.top = Math.floor(Math.random() *  (maxY - 300) + 300);
             this.element = document.createElement('img')
 
-            this.element.src = '../images/potato.png'
+            this.element.src = 'images/potato.png'
             this.element.style.width = `${this.width}px`
             this.element.style.height = `${this.height}px`
             this.element.style.top = `${this.top}px`
@@ -54,7 +54,7 @@ class Potato{
             this.top = Math.floor(Math.random() *  (maxY - 300) + 300);
             this.element = document.createElement('img')
 
-            this.element.src = '../images/poisonous-potato.png'
+            this.element.src = 'images/poisonous-potato.png'
             this.element.style.width = `${this.width}px`
             this.element.style.height = `${this.height}px`
             this.element.style.top = `${this.top}px`

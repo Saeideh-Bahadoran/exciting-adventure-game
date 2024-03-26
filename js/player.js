@@ -11,7 +11,7 @@ class Player {
     this.directionY = 0
     this.speed = 3
     this.element = document.createElement('img')
-    this.element.src = '../images/player.png'
+    this.element.src = 'images/player.png'
     this.element.style.width = `${this.width}px`
     this.element.style.height = `${this.height}px`
     this.element.style.top = `${this.top}px`
