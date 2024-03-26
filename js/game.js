@@ -71,7 +71,7 @@ class Game {
     goToEndScreen() {
         if (!this.gameOver) {
             document.getElementById('showResult').innerText = 'You Win!'
-            document.getElementById('showResult').style.backgroundColor = '#8cb7ab'
+            document.getElementById('showResult').style.backgroundColor = '#228267'
 
         }
         else {
