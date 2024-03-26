@@ -6,11 +6,8 @@ class Game {
         this.gameScreen = document.getElementById('game-screen')
         this.endScreen = document.getElementById('game-end')
         this.gameContainer = document.getElementById('game-container')
-
-        //this.endScreen = document.getElementById('game-end')
         // this.width = 150
         // this.height = 100
-        this.intervalId
         this.currentFrame = 0
         this.lives = 3
         this.score = 0
@@ -37,9 +34,7 @@ class Game {
         this.potatos.createPotato();
         this.intervalId = setInterval(() => {
             this.player.render();
-            document.getElementById('score').innerText = this.score
-            document.getElementById('lives').innerText = this.lives
-            document.getElementById('potatoes').innerText = this.pickedPotato
+            
 
             this.potatos.ediblePotatos.forEach(currentPotato => {
                 if (this.player.didCollideWithPotato(currentPotato)) {
@@ -62,38 +57,44 @@ class Game {
                     if (this.lives <= 0) {
                         this.gameOver = true
                         this.goToEndScreen();
-                        clearInterval(this.intervalId)
+                        
                     }
                 }
 
             })
+            document.getElementById('score').innerText = this.score
+            document.getElementById('lives').innerText = this.lives
+            document.getElementById('potatoes').innerText = this.pickedPotato
 
         }, 1000 / 60)
     }
     goToEndScreen() {
-        if (this.gameOver == false) {
+        if (!this.gameOver) {
             document.getElementById('showResult').innerText = 'You Win!'
+            document.getElementById('showResult').style.backgroundColor = '8cb7ab'
+
         }
         else {
             document.getElementById('showResult').innerText = 'Game Over!'
             document.getElementById('showResult').style.backgroundColor = '#a33939'
-            this.player.element.remove()
-            this.potatos.poisonousPotatos.forEach(currentPotato => {
-                currentPotato.remove()
-            })
-            this.potatos.ediblePotatos.forEach(currentPotato => {
-                currentPotato.remove()
-            })
+           
         }
+        this.player.element.remove()
+        this.potatos.poisonousPotatos.forEach(currentPotato => {
+            currentPotato.remove()
+        })
+        this.potatos.ediblePotatos.forEach(currentPotato => {
+            currentPotato.remove()
+        })
         this.gameContainer.style.display = 'none'
         this.gameScreen.style.display = 'none'
         this.endScreen.style.display = 'block'
-        document.getElementById('playerFinalScore').innerText += this.score + ' second'
+        document.getElementById('playerFinalScore').innerText ='Your Time: '+ this.score + ' second'
         document.getElementById('showResult').style.left = '200px'
         document.getElementById('showResult').style.top = '140px'
         document.getElementById('restart-button').style.top = '500px'
         document.getElementById('restart-button').style.left = '350px'
-
+        clearInterval(this.intervalId)
     }
 
 

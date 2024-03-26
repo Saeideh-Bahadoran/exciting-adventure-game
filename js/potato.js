@@ -38,6 +38,7 @@ class Potato{
             //     potatoRect : this.element.getBoundingClientRect(),
             // }
             this.ediblePotatos.push(this.element)
+            console.log(`ediblePotato:  ${this.ediblePotatos}`)
         }
 
 
