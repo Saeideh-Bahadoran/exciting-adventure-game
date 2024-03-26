@@ -4,14 +4,15 @@ window.addEventListener('load', () => {
     const startButton = document.getElementById('start-button')
     const restartButton = document.getElementById('restart-button')
     const introBox = document.getElementById('introduction')
-    let game
-    console.log(introBox)
 
+    let game
+    
     function startGame() {
       console.log('start game')
       game = new Game()
       game.start()
     }
+
     function showIntro(){
 
         if(introBox.style.display === 'block'){
@@ -31,11 +32,10 @@ window.addEventListener('load', () => {
       startGame()
     })
 
-  
-    // restartButton.addEventListener('click', function () {
-    //   startGame()
-    //   // Last option in case you have problems on the restart => window.location.reload()
-    // })
+    restartButton.addEventListener('click', function () {
+      startGame()
+      // Last option in case you have problems on the restart => window.location.reload()
+    })
 
     document.addEventListener('keydown', event => {
         if (event.code === 'ArrowUp') { // up arrow
