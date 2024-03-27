@@ -3,7 +3,7 @@
     padding: 0;
  }
 body {
-    height: 100vh;
+    /* height: 100vh; */
     display:flex;
     align-items: center;
     justify-content: center;
@@ -14,18 +14,27 @@ body {
 
 main{
     width: 800px;
-    max-width: 800px;
-    height: 100vh;;
+    max-width: 800px; 
+    height: 800px;
+    margin-top: 10%;
+    overflow: hidden;
 }
 
 #game-intro{
     position:relative;
+    margin-top: 30%;
+    
 }
 
+
 .background-img{
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 50%; */
     position: absolute;
     z-index: -1;
     width: 800px;
+    height: 400px;
 
 }
 
@@ -47,9 +56,13 @@ main{
     font-style: italic;
     font-size: 10px;
     position: absolute;
-    top: 100px;
+    top: 150px;
     left: 60%;
     width: 200px;
+    outline: 2px solid #CCC;
+    border: 2px solid #371e05;
+       
+       /* background-color: #999; */
 }
 
 #game-container {
@@ -62,16 +75,17 @@ main{
     position: absolute;
     top : 10px;
     left: 5px;
+    border: 2px solid #371e05;
 }
 
 .game-img{
     position: absolute;
    
     /* width: 100%; */
-    height: 100%;
+    /* height: 100%; */
     overflow: hidden;  /* Prevent scrolling */
     /* max-width: 100%; */
-    max-height: 100%;
+    /* max-height: 100%; */
     display: block;
     margin: auto; /* Center the image horizontally */
 
@@ -83,18 +97,18 @@ main{
 .sky {
     z-index: -2;
     top:0;
-    height: 45%;
+    height: 230px;
 }
 
 .ground-top {
     z-index: -1;
-    top: 200px;
-    height: 33%;
+    top: 140px;
+    height: 320px;
 }
 
 .ground-bottom {
     z-index: 0;
-    height: 33%;
+    height: 300px;
     top: 400px;
 }
 
@@ -102,7 +116,8 @@ main{
     display: none;
     overflow: hidden;
     position: relative;
-    height: 100vh;
+    height: 800px;
+    width: 800px;
 }
 #gameOver-img{
     /* display: none; */
