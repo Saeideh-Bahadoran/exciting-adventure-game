@@ -4,6 +4,8 @@ window.addEventListener('load', () => {
     const startButton = document.getElementById('start-button')
     const restartButton = document.getElementById('restart-button')
     const introBox = document.getElementById('introduction')
+    const TabelScores = document.querySelector("table")
+    //const tabelOfBestScores = document.getElementById("bestScoresTable")
 
     let game
     
@@ -33,6 +35,12 @@ window.addEventListener('load', () => {
     })
 
     restartButton.addEventListener('click', function () {
+      TabelScores.deleteRow(5)
+        TabelScores.deleteRow(4)
+        TabelScores.deleteRow(3)
+        TabelScores.deleteRow(2)
+        TabelScores.deleteRow(1)
+
       startGame()
       console.log()
       // Last option in case you have problems on the restart => window.location.reload()

@@ -28,8 +28,8 @@ class Player {
   }
 
   move() {
-    console.log(`top = ${this.top}`)
-    console.log(`left = ${this.left}`)
+    // console.log(`top = ${this.top}`)
+    // console.log(`left = ${this.left}`)
     if (this.top >= 100 && this.top <= this.gameScreen.clientHeight) {
       this.top += this.directionY
     }

@@ -143,8 +143,8 @@ body button {
 #restart-button{
     
     position: absolute;
-    top: 600px;
-    left: 35%
+    top: 800px;
+    left: 35%;
 }
 #showResult{
     font-size: 100px;
@@ -157,8 +157,25 @@ body button {
     position: absolute;
     background-color: #228267;
     top: 340px;
-    left: 220px;
+    left: 260px;
 
+}
+#playerLastScores{
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    display: block;
+    left: 100px;
+    top: 300px;
+    
+       
+}
+#bestScoresTable{
+    position: absolute;
+    table-layout: fixed;
+    border : 3px solid #011817;
+    left: 200px;
+    top: 400px;
 }
 
 

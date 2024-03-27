@@ -21,7 +21,7 @@ class Potato{
             if(this.left < 80){
                 this.left += 80
             }
-            this.top = Math.floor(Math.random() *  (maxY - 300) + 190);
+            this.top = Math.floor(Math.random() *  (maxY - 300) + 220);
             this.element = document.createElement('img')
 
             this.element.src = 'images/potato.png'
@@ -32,7 +32,7 @@ class Potato{
             this.element.style.position = 'absolute'
             this.gameScreen.appendChild(this.element);
             this.ediblePotatos.push(this.element)
-            console.log(`ediblePotato:  ${this.ediblePotatos}`)
+            //console.log(`ediblePotato:  ${this.ediblePotatos}`)
         }
 
 
@@ -45,7 +45,7 @@ class Potato{
             if(this.left < 80){
                 this.left += 80
             }
-            this.top = Math.floor(Math.random() *  (maxY - 300) + 190);
+            this.top = Math.floor(Math.random() *  (maxY - 300) + 220);
             this.element = document.createElement('img')
 
             this.element.src = 'images/poisonous-potato.png'
