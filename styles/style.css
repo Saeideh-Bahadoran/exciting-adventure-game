@@ -15,8 +15,8 @@ body {
 main{
     width: 800px;
     max-width: 800px; 
-    height: 800px;
-    margin-top: 10%;
+    height: 100vh;
+    /* margin-top: 10%; */
     overflow: hidden;
 }
 

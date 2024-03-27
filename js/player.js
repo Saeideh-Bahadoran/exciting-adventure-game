@@ -30,11 +30,11 @@ class Player {
   move() {
     console.log(`top = ${this.top}`)
     console.log(`left = ${this.left}`)
-    if (this.top >= 150 && this.top <= this.gameScreen.clientHeight) {
+    if (this.top >= 100 && this.top <= this.gameScreen.clientHeight) {
       this.top += this.directionY
     }
-    if (this.top <= 150) {
-      this.top = 150
+    if (this.top <= 100) {
+      this.top = 100
     }
     if (this.top >= this.gameScreen.clientHeight - this.height - 80) {
       this.top = this.gameScreen.clientHeight - this.height - 80
@@ -53,25 +53,45 @@ class Player {
   didCollideWithPotato(potato) {
     const playerRect = this.element.getBoundingClientRect()
     const potatoRect = potato.getBoundingClientRect()
+    const collisionRectObj={
+      left:playerRect.left +10 ,
+      right:playerRect.right -10,
+      top:playerRect.top + 120,
+      botton:playerRect.bottom
+    }
 
     return (
-      playerRect.left < potatoRect.right &&
-      playerRect.right > potatoRect.left &&
-      playerRect.top < potatoRect.bottom &&
-      playerRect.bottom > potatoRect.top
+      collisionRectObj.left < potatoRect.right &&
+      collisionRectObj.right > potatoRect.left &&
+      collisionRectObj.top < potatoRect.bottom &&
+      collisionRectObj.botton > potatoRect.top
     )
   }
   didCollideWithPoisonousPotato(potato) {
     const playerRect = this.element.getBoundingClientRect()
     const potatoRect = potato.getBoundingClientRect()
 
-    return (
-      playerRect.left < potatoRect.right &&
-      playerRect.right - 30 > potatoRect.left &&
-      playerRect.top < potatoRect.bottom &&
-      playerRect.bottom > potatoRect.top
-    )
+  //   return (
+  //     playerRect.left + this.width/2 < potatoRect.right &&
+  //     playerRect.right - this.width/2 > potatoRect.left &&
+  //     playerRect.top + this.height < potatoRect.bottom &&
+  //     playerRect.bottom > potatoRect.top
+  //   )
+  // }
+  const collisionRectObj={
+    left:playerRect.left +10 ,
+    right:playerRect.right -10,
+    top:playerRect.top + 120,
+    botton:playerRect.bottom
   }
+
+  return (
+    collisionRectObj.left < potatoRect.right &&
+    collisionRectObj.right > potatoRect.left &&
+    collisionRectObj.top < potatoRect.bottom &&
+    collisionRectObj.botton > potatoRect.top
+  )
+}
 
 
 
