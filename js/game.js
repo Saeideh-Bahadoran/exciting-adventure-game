@@ -34,6 +34,8 @@ class Game {
         this.potatos.createPotato();
         this.intervalId = setInterval(() => {
             this.player.render();
+            this.score +=1;
+            //document.getElementById('score').innerText = this.score
             
 
             this.potatos.ediblePotatos.forEach(currentPotato => {
