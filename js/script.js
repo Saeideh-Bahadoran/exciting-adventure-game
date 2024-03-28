@@ -9,10 +9,10 @@ window.addEventListener('load', () => {
   const backgroundAudio = new Audio("/sounds/backgroundSound.mp3")
   backgroundAudio.setAttribute("loop", "")
   backgroundAudio.volume =0.75;
-  //const winAudio= new Audio("/sounds/win.wav")
+  
 
 
-  //const tabelOfBestScores = document.getElementById("bestScoresTableBody")
+  
   let soundplay = false
   let game
 
@@ -60,16 +60,7 @@ window.addEventListener('load', () => {
   } )
 
   restartButton.addEventListener('click', function () {
-    // console.log(TabelScores.children)
-    // for (let i = 1; i < TabelScores.children.length; i++) {
-    //   TabelScores.deleteRow(i)
-    // }
-    // 
-    //   TabelScores.deleteRow(4)
-    //   TabelScores.deleteRow(3)
-    //   TabelScores.deleteRow(2)
-    //   TabelScores.deleteRow(1)
-
+    
     startGame()
     console.log()
     // Last option in case you have problems on the restart => window.location.reload()

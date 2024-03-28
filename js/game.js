@@ -17,14 +17,14 @@ class Game {
         this.pickPotatoAudio = new Audio("/sounds/pick-potato.mp3")
         this.poisyAudio = new Audio("/sounds/pick-poisonous-potato.mp3")
         this.loseAudio = new Audio("/sounds/game-over.mp3")
-        
+
 
 
     }
-    
+
     start() {
-        this.winAudio.pause();
-        this.winAudio.currentTime = 0;
+        // this.winAudio.pause();
+        // this.winAudio.currentTime = 0;
 
         this.gameIntro.style.display = 'none'
         this.gameContainer.style.display = 'block'
@@ -38,11 +38,15 @@ class Game {
     }
 
     play() {
-        console.log(this.pickPotatoAudio.duration )
+        this.winAudio.pause();
+        this.winAudio.currentTime = 0;
+
         this.potatos.createPotato();
+
         this.intervalId = setInterval(() => {
             this.player.render();
             this.score += this.currentFrame % 60 === 0 ? 1 : 0;
+
             this.potatos.ediblePotatos.forEach(currentPotato => {
                 if (this.player.didCollideWithPotato(currentPotato)) {
                     this.pickPotatoAudio.play();
@@ -53,7 +57,7 @@ class Game {
                         this.goToEndScreen();
                     }
 
-                    
+
                 }
             })
 
@@ -64,13 +68,11 @@ class Game {
                     this.lives -= 1
                     currentPotato.remove();
 
-                    
-
                     if (this.lives <= 0) {
                         this.gameOver = true
                         this.loseAudio.play()
                         this.goToEndScreen();
-                        
+
                     }
                 }
 
@@ -90,7 +92,7 @@ class Game {
 
         if (!this.gameOver) {
             if (localStorage) {
-                
+
 
                 const scoresFromLocalStorage = JSON.parse(localStorage.getItem("scores")) || {
                     current: 0,
@@ -159,7 +161,7 @@ class Game {
             document.getElementById('best-score-table').style.display = 'none'
             document.getElementById('playerFinalScore').style.display = 'none'
             this.tabelBodyOfBestScores.style.display = 'none'
-           
+
             document.getElementById('showResult').innerText = 'Game Over!'
             document.getElementById('showResult').style.backgroundColor = '#a33939'
 

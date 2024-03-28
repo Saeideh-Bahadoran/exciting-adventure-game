@@ -105,6 +105,15 @@ main{
     height: 230px;
 }
 
+.cloud{
+    display: flex;
+    justify-content: space-between;
+}
+.cloud-img{
+    transform: scale(0.65);
+    /* transform:translateX(2px) */
+}
+
 .ground-top {
     z-index: -1;
     top: 140px;
