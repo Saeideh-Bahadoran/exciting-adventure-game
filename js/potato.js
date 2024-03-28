@@ -1,20 +1,35 @@
+function isValidPlace(newItem, prevItem) {
+    // item : {
+    //     x: Number,
+    //     y: Number,
+    //     w: Number,
+    //     h: number
+    // }
+    const TRESHOLD = 32; // in pixel
 
-function findRandomPlace(gameScreen, left, top) {
+    if ((newItem.x > prevItem.x + prevItem.w + TRESHOLD) ||
+        (newItem.y > prevItem.y + prevItem.h + TRESHOLD) ||
+        (newItem.x + newItem.w + TRESHOLD < prevItem.x) ||
+        (newItem.y + newItem.h + TRESHOLD < prevItem.y))
+        return true
+
+    return false
+}
+
+function findRandomPlace(gameScreen) {
     const maxX = gameScreen.clientWidth - 50;
     const maxY = gameScreen.clientHeight - 200;
-    left = Math.floor(Math.random() * maxX);
+    let left = Math.floor(Math.random() * maxX);
     if (left < 80) {
         left += 80
     }
-    top = Math.floor(Math.random() * (maxY - 300) + 220);
-
+    let top = Math.floor(Math.random() * (maxY - 300) + 220);
     return { top: top, left: left };
 }
 
 class Potato {
     constructor(gameScreen) {
-        this.x = 0
-        this.y = 0
+        
         this.gameScreen = gameScreen
         this.width = 25
         this.height = 25
@@ -26,32 +41,39 @@ class Potato {
     createPotato() {
 
         for (let i = 0; i < 10; i++) {
+            let point = findRandomPlace(this.gameScreen);
 
-            const point = findRandomPlace(this.gameScreen, this.left, this.top);
-
-
-            // const maxX = this.gameScreen.clientWidth - 50;
-            // const maxY = this.gameScreen.clientHeight - 200;
-            // this.left = Math.floor(Math.random() * maxX);
-            // if (this.left < 80) {
-            //     this.left += 80
-            // }
-            // this.top = Math.floor(Math.random() * (maxY - 300) + 220);
-
-
-
-            this.element = document.createElement('img')
-
-            this.element.src = 'images/potato.png'
-            this.element.style.width = `${this.width}px`
-            this.element.style.height = `${this.height}px`
-            this.element.style.top = `${point.top}px`
-            this.element.style.left = `${point.left}px`
-            this.element.style.position = 'absolute'
-            this.gameScreen.appendChild(this.element);
-            this.ediblePotatos.push(this.element)
-
+            if (this.ediblePotatos.length >= 1) {
+                this.ediblePotatos.forEach((item) => {
+                    
+                    let counter = 0;
+                    while (!isValidPlace({ x: point.left, y: point.top, w: this.width, h: this.height }, item)) {
+                        
+                        console.log('not valid try again', counter, point, item)
+                        point = findRandomPlace(this.gameScreen, this.left, this.top);
+                    }
+                })
+            }
+            this.ediblePotatos.push({ x: point.left, y: point.top, w: this.width, h: this.height })
         }
+
+        console.log(this.ediblePotatos)
+
+        // extract to renderpotatoo method
+        this.ediblePotatos.forEach(item => {
+            const renderPotato = document.createElement('img')
+
+            renderPotato.src = 'images/potato.png'
+            renderPotato.style.width = `${item.w}px`
+            renderPotato.style.height = `${item.h}px`
+            renderPotato.style.top = `${item.y}px`
+            renderPotato.style.left = `${item.x}px`
+            renderPotato.style.position = 'absolute'
+            renderPotato.style.padding = '16px'
+
+            renderPotato.style.border = 'solid 1px red';
+            this.gameScreen.appendChild(renderPotato);
+        })
 
 
         for (let i = 0; i < 20; i++) {
@@ -66,15 +88,15 @@ class Potato {
             this.top = Math.floor(Math.random() * (maxY - 300) + 220);
             this.element = document.createElement('img')
 
-            this.element.src = 'images/poisonous-potato.png'
-            this.element.style.width = `${this.width}px`
-            this.element.style.height = `${this.height}px`
-            this.element.style.top = `${this.top}px`
-            this.element.style.left = `${this.left}px`
-            this.element.style.position = 'absolute'
+            // this.element.src = 'images/poisonous-potato.png'
+            // this.element.style.width = `${this.width}px`
+            // this.element.style.height = `${this.height}px`
+            // this.element.style.top = `${this.top}px`
+            // this.element.style.left = `${this.left}px`
+            // this.element.style.position = 'absolute'
 
-            this.gameScreen.appendChild(this.element)
-            this.poisonousPotatos.push(this.element)
+            // this.gameScreen.appendChild(this.element)
+            // this.poisonousPotatos.push(this.element)
 
         }
 
