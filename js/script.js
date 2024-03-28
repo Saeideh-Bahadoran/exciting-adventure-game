@@ -60,10 +60,15 @@ window.addEventListener('load', () => {
   } )
 
   restartButton.addEventListener('click', function () {
-    
+    game.winAudio.pause();
+    game.winAudio.currentTime = 0;
+
+    game.loseAudio.pause();
+    game.loseAudio.currentTime = 0;
+
     startGame()
-    console.log()
-    // Last option in case you have problems on the restart => window.location.reload()
+    
+    //window.location.reload()
   })
 
   document.addEventListener('keydown', event => {
@@ -75,6 +80,7 @@ window.addEventListener('load', () => {
     }
     if (event.code === 'ArrowLeft') {// left arrow
       game.player.directionX = -game.player.speed
+ //     game.player.element.transform = scaleX(-1);
     }
     if (event.code === 'ArrowRight') { // right arrow
       game.player.directionX = game.player.speed

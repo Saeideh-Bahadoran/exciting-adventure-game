@@ -38,6 +38,7 @@ class Game {
     }
 
     play() {
+        
         this.winAudio.pause();
         this.winAudio.currentTime = 0;
 
@@ -91,6 +92,7 @@ class Game {
         let playerScores = []
 
         if (!this.gameOver) {
+           // this.winAudio.play();
             if (localStorage) {
 
 
@@ -110,8 +112,7 @@ class Game {
                 console.log("uniqueArray.length", uniqueArray.length)
                 const newArr = uniqueArray.slice(-5);
                 console.log("newArr", newArr)
-                // const tbl = document.createElement("table");
-                // const tblBody = document.createElement("tbody");
+                
                 this.tabelBodyOfBestScores.innerHTML = '';
                 newArr.sort((a, b) => a - b).map((item, index) => {
 
@@ -131,13 +132,11 @@ class Game {
                         }
                         cell.appendChild(cellText);
                         row.appendChild(cell);
-                        //tblBody.appendChild(tabelOfBestScores)
+                        
                     }
                     console.log(row)
                     this.tabelBodyOfBestScores.appendChild(row)
-                    // tbl.appendChild(tblBody)
-                    // document.body.appendChild(tbl)
-                    // tbl.setAttribute("border", "2");
+                    
                 })
 
 
@@ -145,8 +144,6 @@ class Game {
                 document.getElementById('best-score-table').style.display = 'block'
                 document.getElementById('bestScoresTableBody').style.display = 'block'
                 document.getElementById('playerFinalScore').style.display = 'block'
-                // this.tabelOfBestScores.style.display = 'block'
-                //document.getElementById("playerLastScores").innerText = "Your last scores : " + uniqueArray
                 localStorage.setItem("scores", JSON.stringify(scoresFromLocalStorage));
             }
 

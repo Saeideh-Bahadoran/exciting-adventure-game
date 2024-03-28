@@ -32,7 +32,7 @@ class Potato{
             this.element.style.position = 'absolute'
             this.gameScreen.appendChild(this.element);
             this.ediblePotatos.push(this.element)
-            //console.log(`ediblePotato:  ${this.ediblePotatos}`)
+       
         }
 
 
@@ -59,10 +59,6 @@ class Potato{
             this.poisonousPotatos.push(this.element)
 
         }
-        // const poisonousPotato =  {
-
-        //     poisonousPotatoRect : this.element.getBoundingClientRect(),
-        // }
         
     }
 }
