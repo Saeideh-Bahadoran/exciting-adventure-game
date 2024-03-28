@@ -27,8 +27,10 @@ class Potato {
         this.top = 0
         this.left = 0
         this.itemPoints = []
+
         this.ediblePotatos = []
         this.poisonousPotatos = []
+        this.surpriseItem = []
     }
     createPotato() {
 
@@ -58,9 +60,6 @@ class Potato {
             renderPotato.style.top = `${item.y}px`
             renderPotato.style.left = `${item.x}px`
             renderPotato.style.position = 'absolute'
-            renderPotato.style.padding = '16px'
-
-            renderPotato.style.border = 'solid 1px red';
             this.ediblePotatos.push(renderPotato)
             this.gameScreen.appendChild(renderPotato);
         })
@@ -90,10 +89,39 @@ class Potato {
             renderPoison.style.left = `${item.x}px`
             renderPoison.style.position = 'absolute'
 
-            renderPoison.style.border = 'solid 1px red';
-
             this.poisonousPotatos.push(renderPoison)
             this.gameScreen.appendChild(renderPoison);
+        })
+
+        for (let i = 0; i < 3; i++) {
+            let point = findRandomPlace(this.gameScreen);
+
+                this.itemPoints.forEach((item) => {
+
+                    while (isColliding({ x: point.left, y: point.top, w: this.width, h: this.height }, item)) {
+                        point = findRandomPlace(this.gameScreen, this.left, this.top);
+                    }
+                })
+            
+            this.itemPoints.push({ x: point.left, y: point.top, w: this.width, h: this.height, type: 'surprise' })
+        }
+
+
+        // extract to renderpotatoo method
+        this.itemPoints.forEach(item => {
+            if (item.type !== 'surprise') return;
+            const surpriseItem = document.createElement('img')
+
+            surpriseItem.src = 'images/flower.gif'
+            surpriseItem.style.width = `${item.w}px`
+            surpriseItem.style.height = `${item.h}px`
+            surpriseItem.style.top = `${item.y}px`
+            surpriseItem.style.left = `${item.x}px`
+            surpriseItem.style.position = 'absolute'
+
+            surpriseItem.style.border = 'solid 1px red';
+            this.surpriseItem.push(surpriseItem)
+            this.gameScreen.appendChild(surpriseItem);
         })
     }
 }

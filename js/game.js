@@ -50,11 +50,11 @@ class Game {
             this.score += this.currentFrame % 60 === 0 ? 1 : 0;
 
             this.potatos.ediblePotatos.forEach(currentPotato => {
-                if (this.player.didCollideWithPotato(currentPotato)) {
+                if (this.player.didCollideWithItem(currentPotato)) {
                     this.pickPotatoAudio.play();
                     this.pickedPotato += 1;
                     currentPotato.remove();
-                    if (this.pickedPotato >= 5) {
+                    if (this.pickedPotato === this.potatos.ediblePotatos.length) {
                         this.winAudio.play();
                         this.goToEndScreen();
                     }
@@ -64,11 +64,28 @@ class Game {
             })
 
             this.potatos.poisonousPotatos.forEach(currentPotato => {
-                if (this.player.didCollideWithPoisonousPotato(currentPotato)) {
+                if (this.player.didCollideWithItem(currentPotato)) {
                     this.poisyAudio.play();
 
                     this.lives -= 1
                     currentPotato.remove();
+
+                    if (this.lives <= 0) {
+                        this.gameOver = true
+                        this.loseAudio.play()
+                        this.goToEndScreen();
+
+                    }
+                }
+
+            })
+
+            this.potatos.surpriseItem.forEach(current => {
+                if (this.player.didCollideWithItem(current)) {
+                    this.poisyAudio.play();
+
+                    this.lives += 1
+                    current.remove();
 
                     if (this.lives <= 0) {
                         this.gameOver = true

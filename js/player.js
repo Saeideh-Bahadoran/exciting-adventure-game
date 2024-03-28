@@ -19,7 +19,6 @@ class Player {
     this.element.style.left = `${this.left}px`
     this.element.style.position = 'absolute'
     this.element.style.zIndex = '1'
-    this.playerDom= document.getElementById("player")
     this.gameScreen.appendChild(this.element)
   }
 
@@ -52,13 +51,16 @@ class Player {
       this.left = this.gameScreen.clientWidth - this.width
     }
   }
-  didCollideWithPotato(potato) {
+
+
+  didCollideWithItem(potato) {
     const playerRect = this.element.getBoundingClientRect()
     const potatoRect = potato.getBoundingClientRect()
+
     const collisionRectObj = {
       left: playerRect.left + 10,
       right: playerRect.right - 10,
-      top: playerRect.top + 120,
+      top: playerRect.top + 80,
       botton: playerRect.bottom
     }
 
@@ -69,26 +71,6 @@ class Player {
       collisionRectObj.botton > potatoRect.top
     )
   }
-  didCollideWithPoisonousPotato(potato) {
-    const playerRect = this.element.getBoundingClientRect()
-    const potatoRect = potato.getBoundingClientRect()
-
-
-    const collisionRectObj = {
-      left: playerRect.left + 10,
-      right: playerRect.right - 10,
-      top: playerRect.top + 120,
-      botton: playerRect.bottom
-    }
-
-    return (
-      collisionRectObj.left < potatoRect.right &&
-      collisionRectObj.right > potatoRect.left &&
-      collisionRectObj.top < potatoRect.bottom &&
-      collisionRectObj.botton > potatoRect.top
-    )
-  }
-
 }
 
 
