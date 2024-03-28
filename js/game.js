@@ -13,10 +13,18 @@ class Game {
         this.pickedPotato = 0
         this.gameOver = false
         this.scores = []
+        this.winAudio = new Audio("/sounds/win.wav")
+        this.pickPotatoAudio = new Audio("/sounds/pick-potato.mp3")
+        this.poisyAudio = new Audio("/sounds/pick-poisonous-potato.mp3")
+        this.loseAudio = new Audio("/sounds/game-over.mp3")
+        
+
 
     }
-
+    
     start() {
+        this.winAudio.pause();
+        this.winAudio.currentTime = 0;
 
         this.gameIntro.style.display = 'none'
         this.gameContainer.style.display = 'block'
@@ -30,32 +38,39 @@ class Game {
     }
 
     play() {
+        console.log(this.pickPotatoAudio.duration )
         this.potatos.createPotato();
         this.intervalId = setInterval(() => {
             this.player.render();
             this.score += this.currentFrame % 60 === 0 ? 1 : 0;
             this.potatos.ediblePotatos.forEach(currentPotato => {
                 if (this.player.didCollideWithPotato(currentPotato)) {
+                    this.pickPotatoAudio.play();
                     this.pickedPotato += 1;
                     currentPotato.remove();
                     if (this.pickedPotato >= 5) {
+                        this.winAudio.play();
                         this.goToEndScreen();
                     }
 
-                    // create sound code
+                    
                 }
             })
 
             this.potatos.poisonousPotatos.forEach(currentPotato => {
                 if (this.player.didCollideWithPoisonousPotato(currentPotato)) {
+                    this.poisyAudio.play();
+
                     this.lives -= 1
                     currentPotato.remove();
 
-                    // create sound code
+                    
 
                     if (this.lives <= 0) {
                         this.gameOver = true
+                        this.loseAudio.play()
                         this.goToEndScreen();
+                        
                     }
                 }
 
@@ -75,6 +90,7 @@ class Game {
 
         if (!this.gameOver) {
             if (localStorage) {
+                
 
                 const scoresFromLocalStorage = JSON.parse(localStorage.getItem("scores")) || {
                     current: 0,
@@ -127,7 +143,6 @@ class Game {
                 document.getElementById('best-score-table').style.display = 'block'
                 document.getElementById('bestScoresTableBody').style.display = 'block'
                 document.getElementById('playerFinalScore').style.display = 'block'
-                document.getElementById("playerLastScores").style.display = 'block'
                 // this.tabelOfBestScores.style.display = 'block'
                 //document.getElementById("playerLastScores").innerText = "Your last scores : " + uniqueArray
                 localStorage.setItem("scores", JSON.stringify(scoresFromLocalStorage));
@@ -144,7 +159,7 @@ class Game {
             document.getElementById('best-score-table').style.display = 'none'
             document.getElementById('playerFinalScore').style.display = 'none'
             this.tabelBodyOfBestScores.style.display = 'none'
-            document.getElementById("playerLastScores").style.display = 'none'
+           
             document.getElementById('showResult').innerText = 'Game Over!'
             document.getElementById('showResult').style.backgroundColor = '#a33939'
 
@@ -161,7 +176,7 @@ class Game {
         })
         this.gameContainer.style.display = 'none'
         this.gameScreen.style.display = 'none'
-        this.endScreen.style.display = 'block'
+        this.endScreen.style.display = 'flex'
 
         document.getElementById('showResult').style.left = '200px'
         document.getElementById('showResult').style.top = '140px'

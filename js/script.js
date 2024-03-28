@@ -5,8 +5,15 @@ window.addEventListener('load', () => {
   const restartButton = document.getElementById('restart-button')
   const introBox = document.getElementById('introduction')
   const TabelScores = document.querySelector("table")
-  //const tabelOfBestScores = document.getElementById("bestScoresTableBody")
+  const soundButton = document.getElementById("sound-button")
+  const backgroundAudio = new Audio("/sounds/backgroundSound.mp3")
+  backgroundAudio.setAttribute("loop", "")
+  backgroundAudio.volume =0.75;
+  //const winAudio= new Audio("/sounds/win.wav")
 
+
+  //const tabelOfBestScores = document.getElementById("bestScoresTableBody")
+  let soundplay = false
   let game
 
   function startGame() {
@@ -28,11 +35,29 @@ window.addEventListener('load', () => {
 
   }
 
+
   introButton.addEventListener('click', showIntro)
 
   startButton.addEventListener('click', function () {
+    
     startGame()
   })
+  soundButton.addEventListener('click', ()=>{
+    if(!soundplay){
+      soundButton.innerText = "SOUND OFF"
+      soundplay = true;
+      backgroundAudio.play();
+      
+    }
+    else{
+      soundButton.innerText = "SOUND ON"
+      soundplay = false
+      backgroundAudio.pause();
+      backgroundAudio.currentTime = 0;
+
+    }
+
+  } )
 
   restartButton.addEventListener('click', function () {
     // console.log(TabelScores.children)

@@ -49,20 +49,25 @@ main{
     top: 50px;
     left: 35%
 }
+#sound-button{
+    position: absolute;
+    top: 170px;
+    left: 35%
+}
 
 
 #introduction{
     display: none;
     font-style: italic;
-    font-size: 10px;
+    font-size: 16px;
     position: absolute;
-    top: 150px;
+    top: 100px;
     left: 60%;
     width: 200px;
     outline: 2px solid #CCC;
     border: 2px solid #371e05;
        
-       /* background-color: #999; */
+       background-color: #dd9e29;
 }
 
 #game-container {
@@ -122,23 +127,26 @@ main{
 #gameOver-img{
     /* display: none; */
     z-index: -2;
-    position: absolute;
+    /* position: absolute; */
     height: 800px;
     width: 800px;
 
 }
 #tryAgain{
     display: none;
-    position: absolute;
-    top: 400px;
-    left: 200px;
+    font-size: 20px;
 }
 #game-end {
     display: none;
     overflow: hidden;
-    position: relative;
     height: 800px;
     width: 800px;
+    background-size: cover;
+    background-image: url('../images/gameOver.png');
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 }
 
 body button {
@@ -151,21 +159,26 @@ body button {
     border-radius: 5px;
     margin-bottom: 20px;
 }
-#restart-button{
-    
-    position: absolute;
-    top: 1000px;
-    left: 300px;
+
+body button:hover {
+    background-color: rgb(130, 200, 44);
 }
+
+body button:active {
+    background-color: rgb(11, 113, 47);
+}
+
 #showResult{
     font-size: 100px;
     background-color: #154d3d;
     color: #fff;
-    position: absolute;
+    border-radius: 5px;
+    padding: 16px;
+    /* position: absolute; */
 }
 #playerFinalScore{
     font-size: 30px;
-    position: absolute;
+    /* position: absolute; */
     background-color: #228267;
     top: 340px;
     left: 260px;
@@ -181,11 +194,12 @@ body button {
       
 }
 #best-score-table{
-    position: absolute;
+    /* position: absolute; */
     table-layout: fixed;
-    border : 3px solid #011817;
+    border : 3px solid #044404;
     left: 320px;
     top: 400px;
+    align-content:flex-end;
 }
 
 

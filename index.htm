@@ -15,14 +15,19 @@
     <div id="game-intro">
       <img src="./images/splash.jpg" alt="" class="background-img" />
       <br />
-      <button id="start-button">Start Game</button>
-      <div id="introduction">you gone on an adventure trip and should pick some potatoes for dinner.
-        It's getting dark and the timing of doing this is very important => The faster the better!you must pick 5
-        potatoes to win.
-        But there are some poisonous potatoes among the potatoes.
-        For every poisoned potato you pick, he loses one life.
-        The game score is the time when you able to collect 5 potatoes and it would be recorded.</div>
-      <button id="intro-button">Introduction</button>
+      <button id="start-button">START</button>
+      <div id="introduction"> - You gone on an adventure trip and should pick some potatoes for dinner.
+        <br>
+        - It's getting dark and the timing of doing this is very important.
+        <br>
+                      The faster the better! <br>
+        - Pick 5 otatoes to win.
+        <br>
+        - Move with arrow keys
+        <br>
+        -The game score is the time </div>
+      <button id="intro-button">INTRODUCTION</button>
+      <button id="sound-button">SOUND ON</button>
 
     </div>
 
@@ -47,19 +52,20 @@
 
     <!-- #game-end is initially hidden using CSS style display: none -->
     <div id="game-end">
-      <img src="./images/gameOver.png" alt="" class="gameOver-img" />
+      <!-- <img src="./images/gameOver.png" alt="" class="gameOver-img" /> -->
       <div id="showResult"></div>
       <div id ="tryAgain">Don't get discouraged, try again!</div>
-      <div id="playerLastScores"></div>
+      <!-- <div id="playerLastScores"></div> -->
       <div id="playerFinalScore"></div>
-      <table id="best-score-table">
+      <div style="min-height: 150px;"><table id="best-score-table">
         <tr>
           <th>Your 5 best times</th>
 
         </tr>
         <tbody id="bestScoresTableBody"></tbody>
-      </table>
-      <button id="restart-button">Restart</button>
+      </table></div>
+      
+      <button id="restart-button">PLAY AGAIN?</button>
 
     </div>
 
