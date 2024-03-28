@@ -13,7 +13,7 @@ class Potato{
     }
     createPotato(){
 
-        for(let i = 0 ; i < 15 ; i++){
+        for(let i = 0 ; i < 10 ; i++){
 
             const maxX = this.gameScreen.clientWidth - 50; 
             const maxY = this.gameScreen.clientHeight -200; 

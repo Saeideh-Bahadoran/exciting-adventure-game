@@ -11,6 +11,7 @@ class Player {
     this.directionY = 0
     this.speed = 3
     this.element = document.createElement('img')
+    this,this.element.id = "#player"
     this.element.src = 'images/player.png'
     this.element.style.width = `${this.width}px`
     this.element.style.height = `${this.height}px`
@@ -18,6 +19,7 @@ class Player {
     this.element.style.left = `${this.left}px`
     this.element.style.position = 'absolute'
     this.element.style.zIndex = '1'
+    this.playerDom= document.getElementById("player")
     this.gameScreen.appendChild(this.element)
   }
 
