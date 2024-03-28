@@ -20,6 +20,7 @@ window.addEventListener('load', () => {
     console.log('start game')
     game = new Game()
     game.start()
+    console.log(game.player)
   }
 
   function showIntro() {
@@ -80,13 +81,12 @@ window.addEventListener('load', () => {
     }
     if (event.code === 'ArrowLeft') {// left arrow
       game.player.directionX = -game.player.speed;
-      console.log(game.player.element)
-      game.player.playerDom.scale(-1,1);
-      game.player.playerDom.translate(-game.player.width, 0);
+      game.player.element.style.transform = 'scale(-1,1)';
 
     }
     if (event.code === 'ArrowRight') { // right arrow
       game.player.directionX = game.player.speed
+      game.player.element.style.transform = 'scale(1,1)';
     }
   })
 

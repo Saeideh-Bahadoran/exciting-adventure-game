@@ -1,6 +1,7 @@
 
 
 class Game {
+
     constructor() {
         this.gameIntro = document.getElementById('game-intro')
         this.gameScreen = document.getElementById('game-screen')
@@ -17,7 +18,7 @@ class Game {
         this.pickPotatoAudio = new Audio("/sounds/pick-potato.mp3")
         this.poisyAudio = new Audio("/sounds/pick-poisonous-potato.mp3")
         this.loseAudio = new Audio("/sounds/game-over.mp3")
-
+        this.player = null;
 
 
     }
