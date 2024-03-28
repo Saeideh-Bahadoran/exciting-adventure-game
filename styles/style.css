@@ -114,6 +114,12 @@ main{
     /* transform:translateX(2px) */
 }
 
+.flower-img{
+    transform: scale(0.08);
+    z-index: 1;
+
+}
+
 .ground-top {
     z-index: -1;
     top: 140px;
