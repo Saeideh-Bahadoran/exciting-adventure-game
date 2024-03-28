@@ -6,7 +6,7 @@ class Game {
         this.gameScreen = document.getElementById('game-screen')
         this.endScreen = document.getElementById('game-end')
         this.gameContainer = document.getElementById('game-container')
-        this.tabelOfBestScores = document.getElementById("bestScoresTable")
+        this.tabelBodyOfBestScores = document.getElementById("bestScoresTableBody")
         this.currentFrame = 0
         this.lives = 3
         this.score = 0
@@ -83,7 +83,7 @@ class Game {
                 playerScores.push(this.score)
                 scoresFromLocalStorage.current = this.score
                 scoresFromLocalStorage.previous.push(this.score)
-                //finding the fivw best Scores(5 lowest time)
+                //finding the five best Scores(5 lowest time)
                 scoresFromLocalStorage.previous.sort(function (a, b) { return b - a })// sorting from hight to low
                 // scoresFromLocalStorage.previous.filter((value, index) => .index)
                 const uniqueArray = scoresFromLocalStorage.previous.filter((element, index) => {
@@ -92,13 +92,12 @@ class Game {
                 console.log("uniqueArray.length", uniqueArray.length)
                 const newArr = uniqueArray.slice(-5);
                 console.log("newArr", newArr)
-                newArr.map((item, index) => {
+                // const tbl = document.createElement("table");
+                // const tblBody = document.createElement("tbody");
+                this.tabelBodyOfBestScores.innerHTML = '';
+                newArr.sort((a, b) => a - b).map((item, index) => {
 
                     index += 1;
-
-                    const tbl = document.createElement("table");
-                    const tblBody = document.createElement("tbody");
-
 
                     const row = document.createElement("tr");
 
@@ -110,27 +109,26 @@ class Game {
 
                         }
                         else {
-                            cellText = document.createTextNode(`${item}   second`);
+                            cellText = document.createTextNode(`    ${item}   second`);
                         }
                         cell.appendChild(cellText);
                         row.appendChild(cell);
                         //tblBody.appendChild(tabelOfBestScores)
-
-
-                        tblBody.appendChild(row);
                     }
-                    tbl.appendChild(tblBody)
-                    document.body.appendChild(tbl)
-
-                    this.tabelOfBestScores.appendChild(tblBody)
-                    tbl.setAttribute("border", "2");
-
+                    console.log(row)
+                    this.tabelBodyOfBestScores.appendChild(row)
+                    // tbl.appendChild(tblBody)
+                    // document.body.appendChild(tbl)
+                    // tbl.setAttribute("border", "2");
                 })
 
 
+                document.getElementById('tryAgain').style.display = 'none'
+                document.getElementById('best-score-table').style.display = 'block'
+                document.getElementById('bestScoresTableBody').style.display = 'block'
                 document.getElementById('playerFinalScore').style.display = 'block'
                 document.getElementById("playerLastScores").style.display = 'block'
-                this.tabelOfBestScores.style.display = 'block'
+                // this.tabelOfBestScores.style.display = 'block'
                 //document.getElementById("playerLastScores").innerText = "Your last scores : " + uniqueArray
                 localStorage.setItem("scores", JSON.stringify(scoresFromLocalStorage));
             }
@@ -142,8 +140,10 @@ class Game {
 
         }
         else {
+            document.getElementById('tryAgain').style.display = 'block'
+            document.getElementById('best-score-table').style.display = 'none'
             document.getElementById('playerFinalScore').style.display = 'none'
-            this.tabelOfBestScores.style.display = 'none'
+            this.tabelBodyOfBestScores.style.display = 'none'
             document.getElementById("playerLastScores").style.display = 'none'
             document.getElementById('showResult').innerText = 'Game Over!'
             document.getElementById('showResult').style.backgroundColor = '#a33939'
@@ -151,7 +151,7 @@ class Game {
 
 
         }
-       
+
         this.player.element.remove()
         this.potatos.poisonousPotatos.forEach(currentPotato => {
             currentPotato.remove()
