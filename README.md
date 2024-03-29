@@ -75,7 +75,7 @@ Classes:
 
 - [Slides Link](https://www.canva.com/design/DAGA4NOGR4o/yOisxmRKTTWuSGSsw6tYpg/edit?utm_content=DAGA4NOGR4o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 - [Github repository Link](https://github.com/Saeideh-Bahadoran/exciting-adventure-game)
-- [Deployment Link] ( https://saeideh-bahadoran.github.io/exciting-adventure-game/)
+- [Deployment Link]( https://saeideh-bahadoran.github.io/exciting-adventure-game/)
 
 
 
