@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
   const introBox = document.getElementById('introduction')
   const TabelScores = document.querySelector("table")
   const soundButton = document.getElementById("sound-button")
-  const backgroundAudio = new Audio("/sounds/backgroundSound.mp3")
+  const backgroundAudio = new Audio("sounds/backgroundSound.mp3")
   backgroundAudio.setAttribute("loop", "")
   backgroundAudio.volume =0.75;
   
