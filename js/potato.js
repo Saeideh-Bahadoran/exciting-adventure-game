@@ -112,14 +112,14 @@ class Potato {
             if (item.type !== 'surprise') return;
             const surpriseItem = document.createElement('img')
 
-            surpriseItem.src = 'images/flower.gif'
+            surpriseItem.src = 'images/surprisePotato.webp'
             surpriseItem.style.width = `${item.w}px`
             surpriseItem.style.height = `${item.h}px`
             surpriseItem.style.top = `${item.y}px`
             surpriseItem.style.left = `${item.x}px`
             surpriseItem.style.position = 'absolute'
 
-            surpriseItem.style.border = 'solid 1px red';
+         
             this.surpriseItem.push(surpriseItem)
             this.gameScreen.appendChild(surpriseItem);
         })

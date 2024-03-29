@@ -14,10 +14,11 @@ class Game {
         this.pickedPotato = 0
         this.gameOver = false
         this.scores = []
-        this.winAudio = new Audio("/sounds/win.wav")
-        this.pickPotatoAudio = new Audio("/sounds/pick-potato.mp3")
-        this.poisyAudio = new Audio("/sounds/pick-poisonous-potato.mp3")
-        this.loseAudio = new Audio("/sounds/game-over.mp3")
+        this.winAudio = new Audio("sounds/win.wav")
+        this.pickPotatoAudio = new Audio("sounds/pick-potato.mp3")
+        this.poisyAudio = new Audio("sounds/pick-poisonous-potato.mp3")
+        this.loseAudio = new Audio("sounds/game-over.mp3")
+        this.surpriseAudio = new Audio("sounds/surprise.mp3")
         this.player = null;
 
 
@@ -82,17 +83,11 @@ class Game {
 
             this.potatos.surpriseItem.forEach(current => {
                 if (this.player.didCollideWithItem(current)) {
-                    this.poisyAudio.play();
+                    this.surpriseAudio.play();
 
                     this.lives += 1
                     current.remove();
 
-                    if (this.lives <= 0) {
-                        this.gameOver = true
-                        this.loseAudio.play()
-                        this.goToEndScreen();
-
-                    }
                 }
 
             })
