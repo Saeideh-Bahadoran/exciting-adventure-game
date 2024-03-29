@@ -101,6 +101,7 @@ class Game {
         }, 1000 / 60)
     }
     goToEndScreen() {
+    
 
         let playerScores = []
 
@@ -185,6 +186,10 @@ class Game {
         })
         this.potatos.ediblePotatos.forEach(currentPotato => {
             currentPotato.remove()
+        })
+
+        this.potatos.surpriseItem.forEach(currentsurprise => {
+            currentsurprise.remove()
         })
         this.gameContainer.style.display = 'none'
         this.gameScreen.style.display = 'none'
